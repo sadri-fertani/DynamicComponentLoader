@@ -1,0 +1,9 @@
+<div class="jumbotron">
+    <div class="row" *ngFor="let currentRow of myTab">
+        <div class="row">
+            <div *ngFor="let currentComponent of currentRow.lstComponent; let i = index" [ngClass]="getClass(currentRow.nbreComponent)">
+                <app-ad [ads]="currentRow.lstComponent[i]"></app-ad>
+            </div>
+        </div>
+    </div>
+</div>
