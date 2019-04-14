@@ -9,15 +9,15 @@ import { AdItem } from '../models/ad-item';
 export class AdService {
   getAdsGrp1() {
     return [
-      new AdItem(InputAdComponent, 'Hero', 'hero1', 'hero1', { name: 'Bombasto', bio: 'Brave as they come' }),
-      new AdItem(InputAdComponent, 'Hero', 'hero2', 'hero2', { name: 'Dr IQ', bio: 'Smart as they come' }),
-      new AdItem(InputAdComponent, 'HeroJob', 'herojob1', 'herojob1', { headline: 'Hiring for several positions', body: 'Submit your resume today!' })
+      new AdItem(InputAdComponent, 'First name', 'firstName'),
+      new AdItem(InputAdComponent, 'Last name', 'lastName')
     ];
   }
 
   getAdsGrp2() {
     return [
-      new AdItem(SelectAdComponent, 'Country', 'country', 'country', [
+      new AdItem(InputAdComponent, 'City', 'city'),
+      new AdItem(SelectAdComponent, 'State', 'state', [
         { name: '', label: '' },
         { name: 'Arizona', label: 'AZ' },
         { name: 'California', label: 'CA' },
@@ -26,13 +26,13 @@ export class AdService {
         { name: 'Pennsylvania', label: 'PA' },
       ]
       ),
-      new AdItem(InputAdComponent, 'HeroJob', 'herojob2', 'herojob2', { headline: 'Openings in all departments', body: 'Apply today' }),
+      new AdItem(InputAdComponent, 'Zip', 'zip'),
     ];
   }
 
   getAdsGrp3() {
     return [
-      new AdItem(InputAdComponent, 'Hero', 'hero3', 'hero3', { name: 'Bombasto', bio: 'Brave as they come' })
+      new AdItem(InputAdComponent, 'E-mail', 'email', null)
     ];
   }
 }

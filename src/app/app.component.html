@@ -1,19 +1,8 @@
-<!-- <div class="jumbotron" style="width:75%">
-    <div class="row" *ngFor="let currentRow of myTab">
-        <div class="row">
-            <div *ngFor="let currentComponent of currentRow.lstComponent; let i = index" [ngClass]="getClass(currentRow.nbreComponent)">
-                <app-ad [ads]="currentRow.lstComponent[i]"></app-ad>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 <div class="jumbotron">
-
     <form [formGroup]="form" novalidate>
         <div class="form-row" *ngFor="let currentRow of myTab">
             <div class="form-group" *ngFor="let currentComponent of currentRow.lstComponent;" [ngClass]="getClass(currentRow.nbreComponent)">
-                <label class="center-block" [for]="currentComponent.formId">{{currentComponent.label}}</label>
+                <label class="center-block" [for]="currentComponent.controlName">{{currentComponent.label}}</label>
                 <app-ad [ads]="currentComponent" [form]="form" [displayFieldCss]="displayFieldCss"></app-ad>
             </div>
         </div>
@@ -23,65 +12,4 @@
             <button class="btn btn-primary" (click)="onSubmit()" [disabled]="!form.valid">Submit</button>
         </div>
     </form>
-
-    <!-- <form class="form-horizontal" [formGroup]="form" (ngSubmit)="onSubmit()">
-
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <label for="name" class="control-label required">Name</label>
-                            <input type="text" id="name" class="form-control" formControlName="name">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <label for="email" class="control-label required">Email</label>
-                            <input type="text" id="email" class="form-control" formControlName="email">
-                        </div>
-                    </div>
-                    <div formArrayName="address">
-                        <div [formGroupName]="address">
-                                <div *ngFor="let item of address.controls;">
-                                    hdfhdhd
-                                </div>
-
-
-                            <div class="form-group">
-                                <div class="col-md-6">
-                                    <label for="street" class="control-label required">Address</label>
-                                    <input type="text" id="street" class="form-control" formControlName="street">
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label for="street2" class="control-label">Address 2</label>
-                                    <input type="text" id="street2" class="form-control" formControlName="street2">
-                                </div>
-
-                                <div class="col-md-3">
-                                    <label for="zipCode" class="control-label required">Zip Code</label>
-                                    <input type="text" id="zipCode" class="form-control" formControlName="zipCode">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-4">
-                                    <label for="city" class="control-label required">City</label>
-                                    <input type="text" id="city" class="form-control" formControlName="city">
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label for="state" class="control-label required">State / Province / Region</label>
-                                    <input type="text" id="state" class="form-control" formControlName="state">
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label for="country" class="control-label required">Country</label>
-                                    <input type="text" id="country" class="form-control" formControlName="country">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="btn btn-primary" [disabled]="!form.valid">Submit</button>
-                    <button class="btn btn-default" (click)="reset()">Reset</button>
-                </form> -->
 </div>

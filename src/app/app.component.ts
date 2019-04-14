@@ -23,11 +23,11 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.myTab = [
       {
-        nbreComponent: 3,
+        nbreComponent: 2,
         lstComponent: this.adService.getAdsGrp1()
       },
       {
-        nbreComponent: 2,
+        nbreComponent: 3,
         lstComponent: this.adService.getAdsGrp2()
       },
       {
@@ -37,12 +37,12 @@ export class AppComponent implements OnInit {
     ];
 
     this.form = this.formBuilder.group({
-      hero1: ['', Validators.required],
-      hero2: ['', Validators.required],
-      hero3: ['', Validators.required],
-      herojob1: ['', Validators.required],
-      herojob2: ['', Validators.required],
-      country: ['', Validators.required]
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      zip: ['', Validators.required],
+      email: ['', Validators.required]
     });
   }
 

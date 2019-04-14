@@ -29,7 +29,7 @@ export class AdComponent implements OnInit {
 
     let componentRef = this.adHost.viewContainerRef.createComponent(componentFactory);
     (<AdModelComponent>componentRef.instance).data = this.ads.data;
-    (<AdModelComponent>componentRef.instance).Id = this.ads.formId;
+    (<AdModelComponent>componentRef.instance).controlName = this.ads.controlName;
     (<AdModelComponent>componentRef.instance).displayFieldCss = this.displayFieldCss;
     (<AdModelComponent>componentRef.instance).form = this.form;
   }

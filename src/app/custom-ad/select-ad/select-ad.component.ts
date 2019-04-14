@@ -10,5 +10,5 @@ export class SelectAdComponent implements AdModelComponent {
   @Input() form: FormGroup;
   @Input() displayFieldCss: Function;
   @Input() data: any[];
-  @Input() Id: string;
+  @Input() controlName: string;
 }

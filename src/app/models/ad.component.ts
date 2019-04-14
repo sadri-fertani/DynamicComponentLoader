@@ -1,8 +1,8 @@
 import { FormGroup } from "@angular/forms";
 
 export interface AdModelComponent {
-  data: any | any[];
-  Id: string;
+  data?: any | any[];
+  controlName: string;
   displayFieldCss: Function;
   form?: FormGroup;
 }
