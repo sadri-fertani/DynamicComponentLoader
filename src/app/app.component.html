@@ -1,15 +1,20 @@
 <div class="jumbotron">
-    <form [formGroup]="form" novalidate>
-        <div class="form-row" *ngFor="let currentRow of myTab">
-            <div class="form-group" *ngFor="let currentComponent of currentRow.lstComponent;" [ngClass]="getClass(currentRow.nbreComponent)">
-                <label class="center-block" [for]="currentComponent.controlName">{{currentComponent.label}}</label>
-                <app-ad [ads]="currentComponent" [form]="form" [displayFieldCss]="displayFieldCss"></app-ad>
+    <fieldset class="form-group">
+        <legend>Dynamic form validation</legend>
+        <br />
+        <form [formGroup]="form" novalidate>
+            <div class="form-row" *ngFor="let currentRow of myTab">
+                <div class="form-group" *ngFor="let currentComponent of currentRow.lstComponent;"
+                    [ngClass]="getClass(currentRow.nbreComponent)">
+                    <label class="center-block" [ngClass]="{'required' : currentComponent.required}" [for]="currentComponent.controlName">{{currentComponent.label}}</label>
+                    <app-ad [ads]="currentComponent" [form]="form" [displayFieldCss]="displayFieldCss"></app-ad>
+                </div>
             </div>
-        </div>
 
-        <div class="form-row">
-            <button class="btn btn-secondary" (click)="reset()">Cancel</button>
-            <button class="btn btn-primary" (click)="onSubmit()" [disabled]="!form.valid">Submit</button>
-        </div>
-    </form>
+            <div class="form-row">
+                <button class="btn btn-secondary" (click)="reset()">Cancel</button>
+                <button class="btn btn-primary" (click)="onSubmit()" [disabled]="!form.valid">Submit</button>
+            </div>
+        </form>
+    </fieldset>
 </div>

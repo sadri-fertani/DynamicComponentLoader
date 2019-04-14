@@ -6,7 +6,8 @@ import { AdRowItems } from './models/ad-row-items';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 
 export class AppComponent implements OnInit {
@@ -43,9 +44,9 @@ export class AppComponent implements OnInit {
     this.form = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      city: ['', Validators.required],
+      city: ['', Validators.nullValidator],
       state: ['', Validators.required],
-      zip: ['', Validators.required],
+      zip: ['', Validators.nullValidator],
       email: ['', Validators.required]
     });
   }

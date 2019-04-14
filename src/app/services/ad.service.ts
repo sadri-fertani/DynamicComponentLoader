@@ -9,15 +9,15 @@ import { AdItem } from '../models/ad-item';
 export class AdService {
   getAdsGrp1() {
     return [
-      new AdItem(InputAdComponent, 'First name', 'firstName'),
-      new AdItem(InputAdComponent, 'Last name', 'lastName')
+      new AdItem(InputAdComponent, 'First name', 'firstName', true),
+      new AdItem(InputAdComponent, 'Last name', 'lastName', true)
     ];
   }
 
   getAdsGrp2() {
     return [
       new AdItem(InputAdComponent, 'City', 'city'),
-      new AdItem(SelectAdComponent, 'State', 'state', [
+      new AdItem(SelectAdComponent, 'State', 'state', true, [
         { name: '', label: '' },
         { name: 'Arizona', label: 'AZ' },
         { name: 'California', label: 'CA' },
@@ -32,7 +32,7 @@ export class AdService {
 
   getAdsGrp3() {
     return [
-      new AdItem(InputAdComponent, 'E-mail', 'email', null)
+      new AdItem(InputAdComponent, 'E-mail', 'email', true)
     ];
   }
 }
