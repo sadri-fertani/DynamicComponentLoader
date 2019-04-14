@@ -1,0 +1,7 @@
+<form [formGroup]="form">
+    <select [attr.id]="Id" class="form-control" [formControlName]="Id" [ngClass]="displayFieldCss(Id)">
+        <option *ngFor="let currentData of data" [ngValue]="currentData">
+            {{ currentData.label }}
+        </option>
+    </select>
+</form>

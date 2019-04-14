@@ -3,6 +3,7 @@ import { Component, Input, OnInit, ViewChild, ComponentFactoryResolver } from '@
 import { AdDirective } from './ad.directive';
 import { AdItem }      from '../models/ad-item';
 import { AdModelComponent } from '../models/ad.component';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-ad',
@@ -10,6 +11,9 @@ import { AdModelComponent } from '../models/ad.component';
 })
 export class AdComponent implements OnInit {
   @Input() ads: AdItem;
+  @Input() displayFieldCss: Function;
+  @Input() form: FormGroup;
+
   @ViewChild(AdDirective) adHost: AdDirective;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { 
@@ -25,5 +29,8 @@ export class AdComponent implements OnInit {
 
     let componentRef = this.adHost.viewContainerRef.createComponent(componentFactory);
     (<AdModelComponent>componentRef.instance).data = this.ads.data;
+    (<AdModelComponent>componentRef.instance).Id = this.ads.formId;
+    (<AdModelComponent>componentRef.instance).displayFieldCss = this.displayFieldCss;
+    (<AdModelComponent>componentRef.instance).form = this.form;
   }
 }
