@@ -36,6 +36,10 @@ export class AppComponent implements OnInit {
       }
     ];
 
+    // var x = 'Hanen'
+    // var z = {[x]:'sadri'}
+    // --> z = {Hanen: 'sadri'}
+
     this.form = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
