@@ -1,3 +1,3 @@
 <form [formGroup]="form">
-    <input [attr.id]="controlName" class="form-control" [formControlName]="controlName" [ngClass]="displayFieldCss(controlName)">
+    <input type="text" [attr.id]="controlName" class="form-control" [formControlName]="controlName" [placeholder]="placeHolder" [ngClass]="displayFieldCss(controlName)">
 </form>

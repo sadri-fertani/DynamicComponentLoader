@@ -68,11 +68,23 @@ export class AdDataService {
                     position: 2,
                     customControls: [
                         {
-                            type: CustomControlNameEnum.Text,
+                            type: CustomControlNameEnum.Email,
                             required: true,
                             label: 'E-mail',
                             controlName: 'email',
                             placeHolder: 'Enter your e-mail'
+                        }
+                    ] as CustomControl[]
+                },
+                {
+                    position: 3,
+                    customControls: [
+                        {
+                            type: CustomControlNameEnum.MultiLignes,
+                            required: true,
+                            label: 'Comment',
+                            controlName: 'comment',
+                            placeHolder: 'Enter your comment'
                         }
                     ] as CustomControl[]
                 }
