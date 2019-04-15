@@ -6,4 +6,6 @@ export interface AdModelComponent {
   placeHolder?: string;
   displayFieldCss: Function;
   form: FormGroup;
+  required: boolean;
+  label: string;
 }

@@ -6,7 +6,6 @@
             <div class="form-row" *ngFor="let currentRow of adForm.rows">
                 <div class="form-group" *ngFor="let currentComponent of currentRow.lstComponent;"
                     [ngClass]="getClass(currentRow.nbreComponent)">
-                    <label class="center-block" [ngClass]="{'required' : currentComponent.required}" [for]="currentComponent.controlName">{{currentComponent.label}}</label>
                     <app-ad [ads]="currentComponent" [form]="form" [displayFieldCss]="displayFieldCss"></app-ad>
                 </div>
             </div>

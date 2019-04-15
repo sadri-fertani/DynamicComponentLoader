@@ -1,3 +1,5 @@
 <form [formGroup]="form">
-    <input type="email" [attr.id]="controlName" class="form-control" [formControlName]="controlName" [placeholder]="placeHolder" [ngClass]="displayFieldCss(controlName)">
+    <label class="center-block" [ngClass]="{'required' : required}" [for]="controlName">{{label}}</label>
+    <input type="email" [attr.id]="controlName" class="form-control" [formControlName]="controlName"
+        [placeholder]="placeHolder" [ngClass]="displayFieldCss(controlName)">
 </form>

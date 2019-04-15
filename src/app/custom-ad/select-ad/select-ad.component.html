@@ -1,5 +1,7 @@
 <form [formGroup]="form">
-    <select [attr.id]="controlName" class="form-control" [formControlName]="controlName" [ngClass]="displayFieldCss(controlName)">
+    <label class="center-block" [ngClass]="{'required' : required}" [for]="controlName">{{label}}</label>
+    <select [attr.id]="controlName" class="form-control" [formControlName]="controlName"
+        [ngClass]="displayFieldCss(controlName)">
         <option *ngFor="let currentData of data" [ngValue]="currentData">
             {{ currentData.label }}
         </option>

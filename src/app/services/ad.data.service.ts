@@ -80,6 +80,22 @@ export class AdDataService {
                     position: 3,
                     customControls: [
                         {
+                            type: CustomControlNameEnum.Radio,
+                            required: true,
+                            label: 'Gender',
+                            controlName: 'gender',
+                            data : [
+                                {
+                                    label : 'Male',
+                                    value : 'Male'
+                                },
+                                {
+                                    label : 'Female',
+                                    value : 'Female'
+                                }
+                            ]
+                        },
+                        {
                             type: CustomControlNameEnum.MultiLignes,
                             required: true,
                             label: 'Comment',

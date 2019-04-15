@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewChild, ComponentFactoryResolver } from '@angular/core';
 
 import { AdDirective } from './ad.directive';
-import { AdItem }      from '../models/ad-item';
+import { AdItem } from '../models/ad-item';
 import { AdModelComponent } from '../models/ad.component';
 import { FormGroup } from '@angular/forms';
 
@@ -16,7 +16,7 @@ export class AdComponent implements OnInit {
 
   @ViewChild(AdDirective) adHost: AdDirective;
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) { 
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) {
     // Empty...
   }
 
@@ -31,6 +31,8 @@ export class AdComponent implements OnInit {
     (<AdModelComponent>componentRef.instance).data = this.ads.data;
     (<AdModelComponent>componentRef.instance).controlName = this.ads.controlName;
     (<AdModelComponent>componentRef.instance).placeHolder = this.ads.placeHolder;
+    (<AdModelComponent>componentRef.instance).required = this.ads.required;
+    (<AdModelComponent>componentRef.instance).label = this.ads.label;
 
     (<AdModelComponent>componentRef.instance).displayFieldCss = this.displayFieldCss;
 

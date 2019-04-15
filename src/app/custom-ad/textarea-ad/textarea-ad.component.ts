@@ -11,4 +11,6 @@ export class TextareaAdComponent implements AdModelComponent {
   @Input() displayFieldCss: Function;
   @Input() controlName: string;
   @Input() placeHolder: string;
+  @Input() required: boolean;
+  @Input() label: string;
 }

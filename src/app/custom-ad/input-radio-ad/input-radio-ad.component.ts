@@ -3,14 +3,14 @@ import { AdModelComponent } from '../../models/ad.component';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-  templateUrl: './input-ad.component.html'
+  templateUrl: './input-radio-ad.component.html'
 })
 
-export class InputAdComponent implements AdModelComponent {
+export class InputRadioAdComponent implements AdModelComponent {
   @Input() form: FormGroup;
   @Input() displayFieldCss: Function;
   @Input() controlName: string;
-  @Input() placeHolder: string;
   @Input() required: boolean;
   @Input() label: string;
+  @Input() data: any[];
 }
