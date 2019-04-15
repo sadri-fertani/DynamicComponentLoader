@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { AdService } from './services/ad.service';
-import { AdRowItems } from './models/ad-row-items';
+import { AdDataService } from './services/ad.data.service';
+import { AdFactoryService } from './services/ad.factory.service';
+
+import { createControlConfig, createRowsItems } from './shared/utils';
+
+import { AdFormRows } from './models/ad-form-rows';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +16,9 @@ import { AdRowItems } from './models/ad-row-items';
 
 export class AppComponent implements OnInit {
   form: FormGroup;
-  myTab: AdRowItems[];
+  adForm: AdFormRows;
 
-  constructor(private adService: AdService, private formBuilder: FormBuilder) {
+  constructor(private dataService: AdDataService, private factoryService: AdFactoryService, private formBuilder: FormBuilder) {
     this.displayFieldCss = this.displayFieldCss.bind(this);
   }
 
@@ -22,33 +26,15 @@ export class AppComponent implements OnInit {
   get f() { return this.form.controls; }
 
   ngOnInit() {
-    this.myTab = [
-      {
-        nbreComponent: 2,
-        lstComponent: this.adService.getAdsGrp1()
-      },
-      {
-        nbreComponent: 3,
-        lstComponent: this.adService.getAdsGrp2()
-      },
-      {
-        nbreComponent: 1,
-        lstComponent: this.adService.getAdsGrp3()
-      }
-    ];
+    const dataFormDesc = this.dataService.getCustomFormDescription();
 
-    // var x = 'Hanen'
-    // var z = {[x]:'sadri'}
-    // --> z = {Hanen: 'sadri'}
+    this.adForm = {
+      legendLabel: dataFormDesc.legendLabel,
+      submitLabel: dataFormDesc.submitLabel,
+      rows: createRowsItems(dataFormDesc.customRows, this.factoryService)
+    } as AdFormRows;
 
-    this.form = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      city: ['', Validators.nullValidator],
-      state: ['', Validators.required],
-      zip: ['', Validators.nullValidator],
-      email: ['', Validators.required]
-    });
+    this.form = this.formBuilder.group(createControlConfig(dataFormDesc));
   }
 
   onSubmit() {

@@ -10,18 +10,32 @@ import { AdDirective } from './core/ad.directive';
 import { InputAdComponent } from './custom-ad/input-ad/input-ad.component';
 import { SelectAdComponent } from './custom-ad/select-ad/select-ad.component';
 
-import { AdService } from './services/ad.service';
+import { AdFactoryService } from './services/ad.factory.service';
+import { AdDataService } from './services/ad.data.service';
 
 @NgModule({
-  imports: [BrowserModule, ReactiveFormsModule],
-  providers: [AdService],
-  declarations: [AppComponent,
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule
+  ],
+  providers: [
+    AdDataService,
+    AdFactoryService
+  ],
+  declarations: [
+    AppComponent,
     AdComponent,
     InputAdComponent,
     SelectAdComponent,
-    AdDirective],
-  entryComponents: [InputAdComponent, SelectAdComponent],
-  bootstrap: [AppComponent]
+    AdDirective
+  ],
+  entryComponents: [
+    InputAdComponent,
+    SelectAdComponent
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule {
   constructor() { }
