@@ -33,6 +33,9 @@ export class AppComponent implements OnInit {
       rows: createRowsItems(dataFormDesc.customRows, this.factoryService)
     } as AdFormRows;
 
+
+    // https://coryrylan.com/blog/creating-a-dynamic-checkbox-list-in-angular
+    
     this.form = this.formBuilder.group(createControlConfig(dataFormDesc));
   }
 
