@@ -1,10 +1,9 @@
 <form [formGroup]="form">
     <label class="center-block" [ngClass]="{'required' : required}">{{label}}</label>
-    <div class="form-check" *ngFor="let currentData of data">
-        <input class="form-check-input" type="checkbox" id="{{controlName + '-' + currentData.value}}"
-            [formControlName]="controlName" [value]="currentData">
-        <label class="form-check-label" for="{{controlName + '-' + currentData.value}}">
-            {{currentData.label}}
+    <div class="form-check" *ngFor="let currentData of form.controls[controlName].controls; let i = index">
+        <label class="form-check-label" [formArrayName]="controlName">
+            <input class="form-check-input" type="checkbox" [formControlName]="i">
+            {{data[i].label}}
         </label>
     </div>
 </form>

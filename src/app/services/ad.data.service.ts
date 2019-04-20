@@ -97,21 +97,21 @@ export class AdDataService {
                         },
                         {
                             type: CustomControlNameEnum.Checkbox,
-                            required: false,
+                            required: true,
                             label: 'Best friends',
                             controlName: 'friends',
                             data : [
                                 {
                                     label : 'Slim',
-                                    value : 'Slim'
+                                    value : 'SlimB'
                                 },
                                 {
                                     label : 'Mohamed',
-                                    value : 'Mohamed'
+                                    value : 'MohamedJenfa'
                                 },
                                 {
                                     label : 'Oussema',
-                                    value : 'Oussema'
+                                    value : 'OussemaB6'
                                 }
                             ]
                         },

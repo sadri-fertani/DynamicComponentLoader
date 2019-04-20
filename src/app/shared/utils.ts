@@ -1,7 +1,7 @@
 import { CustomForm } from "../models/custom-form";
 import { CustomRow } from "../models/custom-row";
 import { CustomControl } from "../models/custom-control";
-import { Validators, AbstractControl, ValidationErrors } from "@angular/forms";
+import { Validators, AbstractControl, ValidationErrors, FormArray, FormControl, ValidatorFn } from "@angular/forms";
 import { AdRowItems } from "../models/ad-row-items";
 import { AdItem } from "../models/ad-item";
 import { AdFactoryService } from "../services/ad.factory.service";
@@ -12,7 +12,12 @@ export function createControlConfig(customForm: CustomForm): any {
 
     customForm.customRows.forEach((row: CustomRow) => {
         row.customControls.forEach((ctr: CustomControl) => {
-            config[ctr.controlName as any] = ['', getValidator(ctr)]
+
+            if (ctr.type === CustomControlNameEnum.Checkbox) {
+                config[ctr.controlName as any] = new FormArray(ctr.data.map(() => new FormControl(false)), getValidator(ctr));
+            } else {
+                config[ctr.controlName as any] = ['', getValidator(ctr)];
+            }
         });
     });
 
@@ -25,11 +30,22 @@ function getValidator(ctr: CustomControl): ((control: AbstractControl) => Valida
     switch (ctr.type) {
         case CustomControlNameEnum.Email:
             validatorList.push(Validators.email);
+            break;
         default:
             break;
     }
 
-    if (ctr.required) { validatorList.push(Validators.required); }
+    if (ctr.required) {
+        switch (ctr.type) {
+            case CustomControlNameEnum.Checkbox:
+                validatorList.push(minSelectedCheckboxes(1));
+                break;
+            default:
+                validatorList.push(Validators.required);
+                break;
+        }
+
+    }
 
     if (validatorList.length === 0) { validatorList.push(Validators.nullValidator); }
 
@@ -59,4 +75,20 @@ function createControl(ctrls: CustomControl[], factoryService: AdFactoryService)
     });
 
     return adItems;
+}
+
+// https://coryrylan.com/blog/creating-a-dynamic-checkbox-list-in-angular
+function minSelectedCheckboxes(min = 1) {
+    const validator: ValidatorFn = (formArray: FormArray) => {
+        const totalSelected = formArray.controls
+            // get a list of checkbox values (boolean)
+            .map(control => control.value)
+            // total up the number of checked checkboxes
+            .reduce((prev, next) => next ? prev + next : prev, 0);
+
+        // if the total is not greater than the minimum, return the error message
+        return totalSelected >= min ? null : { required: true };
+    };
+
+    return validator;
 }
