@@ -98,20 +98,32 @@ export class AdDataService {
                         {
                             type: CustomControlNameEnum.Checkbox,
                             required: true,
-                            label: 'Best friends',
-                            controlName: 'friends',
+                            label: 'Your skills',
+                            controlName: 'skills',
                             data : [
                                 {
-                                    label : 'Slim',
-                                    value : 'SlimB'
+                                    label : 'c#',
+                                    value : 'csharp'
                                 },
                                 {
-                                    label : 'Mohamed',
-                                    value : 'MohamedJenfa'
+                                    label : 'Angular',
+                                    value : 'angular'
                                 },
                                 {
-                                    label : 'Oussema',
-                                    value : 'OussemaB6'
+                                    label : 'React',
+                                    value : 'react'
+                                },
+                                {
+                                    label : 'Sql Server',
+                                    value : 'sqlserver'
+                                },
+                                {
+                                    label : 'Cobol',
+                                    value : 'cobol'
+                                },
+                                {
+                                    label : 'DB2',
+                                    value : 'db2'
                                 }
                             ]
                         },

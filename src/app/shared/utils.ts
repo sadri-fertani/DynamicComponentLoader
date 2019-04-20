@@ -14,7 +14,13 @@ export function createControlConfig(customForm: CustomForm): any {
         row.customControls.forEach((ctr: CustomControl) => {
 
             if (ctr.type === CustomControlNameEnum.Checkbox) {
-                config[ctr.controlName as any] = new FormArray(ctr.data.map(() => new FormControl(false)), getValidator(ctr));
+                config[ctr.controlName as any] = new FormArray(ctr.data.map((item) => {
+                    return new FormControl({
+                        label: item.label,
+                        value: item.value,
+                        checked: false
+                    });
+                }), getValidator(ctr));
             } else {
                 config[ctr.controlName as any] = ['', getValidator(ctr)];
             }
@@ -77,16 +83,14 @@ function createControl(ctrls: CustomControl[], factoryService: AdFactoryService)
     return adItems;
 }
 
-// https://coryrylan.com/blog/creating-a-dynamic-checkbox-list-in-angular
+// Original : https://coryrylan.com/blog/creating-a-dynamic-checkbox-list-in-angular
 function minSelectedCheckboxes(min = 1) {
     const validator: ValidatorFn = (formArray: FormArray) => {
-        const totalSelected = formArray.controls
-            // get a list of checkbox values (boolean)
-            .map(control => control.value)
-            // total up the number of checked checkboxes
-            .reduce((prev, next) => next ? prev + next : prev, 0);
 
-        // if the total is not greater than the minimum, return the error message
+        const totalSelected = formArray.controls
+            .map(control => control.value)
+            .reduce((prev, next) => next.checked ? prev + 1 : prev, 0);
+            
         return totalSelected >= min ? null : { required: true };
     };
 
