@@ -4,5 +4,6 @@ export enum CustomControlNameEnum {
     Checkbox = 'Checkbox',
     List = 'List',
     Email = 'Email',
+    Date = 'Date',
     MultiLignes = 'MultiLignes'
 }

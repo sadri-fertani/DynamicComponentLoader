@@ -73,6 +73,13 @@ export class AdDataService {
                             label: 'E-mail',
                             controlName: 'email',
                             placeHolder: 'Enter your e-mail'
+                        },
+                        {
+                            type: CustomControlNameEnum.Date,
+                            required: true,
+                            label: 'Birthday',
+                            controlName: 'birthday',
+                            placeHolder: 'dd/MM/yyyy'
                         }
                     ] as CustomControl[]
                 },

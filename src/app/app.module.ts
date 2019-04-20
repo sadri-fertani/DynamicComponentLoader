@@ -11,16 +11,22 @@ import { InputAdComponent } from './custom-ad/input-ad/input-ad.component';
 import { InputRadioAdComponent } from './custom-ad/input-radio-ad/input-radio-ad.component';
 import { InputCheckboxAdComponent } from './custom-ad/input-checkbox-ad/input-checkbox-ad.component';
 import { InputEmailAdComponent } from './custom-ad/input-email-ad/input-email-ad.component';
+import { InputDateAdComponent } from './custom-ad/input-date-ad/input-date-ad.component';
 import { TextareaAdComponent } from './custom-ad/textarea-ad/textarea-ad.component';
 import { SelectAdComponent } from './custom-ad/select-ad/select-ad.component';
 
 import { AdFactoryService } from './services/ad.factory.service';
 import { AdDataService } from './services/ad.data.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { AppMaterialModule } from './app.material.module';
 
 @NgModule({
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppMaterialModule,
+    BrowserAnimationsModule
   ],
   providers: [
     AdDataService,
@@ -33,6 +39,7 @@ import { AdDataService } from './services/ad.data.service';
     InputRadioAdComponent,
     InputCheckboxAdComponent,
     InputEmailAdComponent,
+    InputDateAdComponent,
     TextareaAdComponent,
     SelectAdComponent,
     AdDirective
@@ -42,6 +49,7 @@ import { AdDataService } from './services/ad.data.service';
     InputRadioAdComponent,
     InputCheckboxAdComponent,
     InputEmailAdComponent,
+    InputDateAdComponent,
     TextareaAdComponent,
     SelectAdComponent
   ],
