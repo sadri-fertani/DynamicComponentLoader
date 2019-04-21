@@ -1,9 +1,10 @@
 <form [formGroup]="form">
-    <label class="center-block" [ngClass]="{'required' : required}" [for]="controlName">{{label}}</label>
-    <select [attr.id]="controlName" class="form-control" [formControlName]="controlName"
-        [ngClass]="displayFieldCss(controlName)">
-        <option *ngFor="let currentData of data" [ngValue]="currentData">
-            {{ currentData.label }}
-        </option>
-    </select>
+    <mat-form-field>
+        <mat-label>{{label}}</mat-label>
+        <mat-select [formControlName]="controlName" [required]="required">
+            <mat-option *ngFor="let currentData of data" [value]="currentData">
+                {{ currentData.label }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
 </form>

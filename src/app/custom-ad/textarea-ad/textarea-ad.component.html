@@ -1,5 +1,7 @@
 <form [formGroup]="form">
-    <label class="center-block" [ngClass]="{'required' : required}" [for]="controlName">{{label}}</label>
-    <textarea class="form-control" [attr.id]="controlName" [formControlName]="controlName" [placeholder]="placeHolder"
-        [ngClass]="displayFieldCss(controlName)" rows="3"></textarea>
+    <mat-form-field>
+        <mat-label>{{label}}</mat-label>
+        <textarea matInput [placeholder]="placeHolder" [formControlName]="controlName" rows="3"
+            [required]="required"></textarea>
+    </mat-form-field>
 </form>

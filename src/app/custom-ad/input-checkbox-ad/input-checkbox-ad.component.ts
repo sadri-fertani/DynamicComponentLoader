@@ -1,12 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import { AdModelComponent } from '../../models/ad.component';
 import { FormGroup } from '@angular/forms';
+import { MatCheckboxChange } from '@angular/material';
 
 @Component({
   templateUrl: './input-checkbox-ad.component.html'
 })
 
-export class InputCheckboxAdComponent implements AdModelComponent {
+export class InputCheckboxAdComponent implements AdModelComponent, AfterViewInit {
   @Input() form: FormGroup;
   @Input() displayFieldCss: Function;
   @Input() controlName: string;
@@ -14,16 +15,34 @@ export class InputCheckboxAdComponent implements AdModelComponent {
   @Input() label: string;
   @Input() data: any[];
 
-  onCheckboxChange(event) {
-    const indexCurrentElement = this.data.findIndex(e => e.value === event.target.value);
-    
+  constructor() {
+
+  }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      ((this.form.get(this.controlName) as any).controls as any[]).forEach((ctr, i) => {
+        ctr.setValue(
+          {
+            label: this.data[i].label,
+            value: this.data[i].value,
+            checked: false
+          }
+        );
+      });
+    }, 0);
+  }
+
+  onCheckboxChange(event: MatCheckboxChange) {
+    const indexCurrentElement = this.data.findIndex(e => e.value === event.source.value);
+
     if (indexCurrentElement === -1) return;
 
     ((this.form.get(this.controlName) as any).controls as any[])[indexCurrentElement].setValue(
       {
-        label: event.target.name,
-        value: event.target.value,
-        checked: event.target.checked
+        label: event.source.name,
+        value: event.source.value,
+        checked: event.checked
       }
     );
   }

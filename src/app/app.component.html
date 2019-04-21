@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div class="jumbotron" style="margin:10%;">
     <fieldset class="form-group">
         <legend>{{adForm.legendLabel}}</legend>
         <br />
@@ -11,9 +11,9 @@
             </div>
 
             <div class="form-row">
-                <button class="btn btn-secondary" (click)="reset()">Cancel</button>
-                <button class="btn btn-primary" (click)="onSubmit()"
-                    [disabled]="!form.valid">{{adForm.submitLabel}}</button>
+                <button mat-raised-button>Cancel</button>
+                &nbsp;
+                <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="onSubmit()">{{adForm.submitLabel}}</button>
             </div>
         </form>
     </fieldset>

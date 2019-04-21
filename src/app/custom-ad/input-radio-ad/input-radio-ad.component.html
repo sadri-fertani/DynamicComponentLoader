@@ -1,10 +1,8 @@
 <form [formGroup]="form">
     <label class="center-block" [ngClass]="{'required' : required}">{{label}}</label>
-    <div class="form-check" *ngFor="let currentData of data">
-        <input class="form-check-input" type="radio" id="{{controlName + '-' + currentData.value}}"
-            [formControlName]="controlName" [value]="currentData">
-        <label class="form-check-label" for="{{controlName + '-' + currentData.value}}">
-            {{currentData.label}}
-        </label>
-    </div>
+    <mat-radio-group [formControlName]="controlName" [required]="required" aria-label="Choose one">
+        <div *ngFor="let currentData of data">
+            <mat-radio-button [value]="currentData">{{currentData.label}}</mat-radio-button>
+        </div>
+    </mat-radio-group>
 </form>

@@ -2,8 +2,8 @@
     <label class="center-block" [ngClass]="{'required' : required}">{{label}}</label>
     <div class="form-check" *ngFor="let currentData of form.controls[controlName].controls; let i = index">
         <label class="form-check-label" [formArrayName]="controlName">
-            <input class="form-check-input" [name]="data[i].label" [value]="data[i].value" [checked]="currentData.value.checked" type="checkbox" [formControlName]="i" (change)="onCheckboxChange($event)" >
-            {{data[i].label}}
+            <mat-checkbox [formControlName]="i" [checked]="currentData.value.checked" [name]="data[i].label"
+                [value]="data[i].value" (change)="onCheckboxChange($event)">{{data[i].label}}</mat-checkbox>
         </label>
     </div>
 </form>

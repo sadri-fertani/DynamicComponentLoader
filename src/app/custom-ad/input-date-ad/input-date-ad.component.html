@@ -1,12 +1,8 @@
 <form [formGroup]="form">
-    <label class="center-block">{{label}}</label>
-    <!--<input type="date" [attr.id]="controlName" class="form-control" [formControlName]="controlName"
-        [placeholder]="placeHolder" [ngClass]="displayFieldCss(controlName)"> -->
-    <br />
     <mat-form-field>
-        <input matInput [matDatepicker]="picker" [placeholder]="placeHolder" [formControlName]="controlName">
+        <mat-label>{{label}}</mat-label>
+        <input matInput [matDatepicker]="picker" [placeholder]="placeHolder" [formControlName]="controlName" [required]="required">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-
 </form>

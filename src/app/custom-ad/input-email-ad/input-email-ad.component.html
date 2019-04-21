@@ -1,5 +1,6 @@
 <form [formGroup]="form">
-    <label class="center-block" [ngClass]="{'required' : required}" [for]="controlName">{{label}}</label>
-    <input type="email" [attr.id]="controlName" class="form-control" [formControlName]="controlName"
-        [placeholder]="placeHolder" [ngClass]="displayFieldCss(controlName)">
+    <mat-form-field>
+        <mat-label>{{label}}</mat-label>
+        <input matInput [placeholder]="placeHolder" [formControlName]="controlName" [required]="required">
+    </mat-form-field>
 </form>

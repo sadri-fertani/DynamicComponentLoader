@@ -15,11 +15,12 @@ export function createControlConfig(customForm: CustomForm): any {
 
             if (ctr.type === CustomControlNameEnum.Checkbox) {
                 config[ctr.controlName as any] = new FormArray(ctr.data.map((item) => {
-                    return new FormControl({
-                        label: item.label,
-                        value: item.value,
-                        checked: false
-                    });
+                    // return new FormControl({
+                    //     label: item.label,
+                    //     value: item.value,
+                    //     checked: false
+                    // });
+                    return new FormControl(false);
                 }), getValidator(ctr));
             } else {
                 config[ctr.controlName as any] = ['', getValidator(ctr)];
@@ -90,7 +91,7 @@ function minSelectedCheckboxes(min = 1) {
         const totalSelected = formArray.controls
             .map(control => control.value)
             .reduce((prev, next) => next.checked ? prev + 1 : prev, 0);
-            
+
         return totalSelected >= min ? null : { required: true };
     };
 
