@@ -79,7 +79,7 @@ export class AdDataService {
                             required: true,
                             label: 'Birthday',
                             controlName: 'birthday',
-                            placeHolder: 'dd/MM/yyyy'
+                            placeHolder: 'M/d/yyyy'
                         }
                     ] as CustomControl[]
                 },

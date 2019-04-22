@@ -20,6 +20,9 @@ import { AdDataService } from './services/ad.data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppMaterialModule } from './app.material.module';
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
+import { AppDateAdapter } from './shared/AppDateAdapter';
+import { APP_DATE_FORMATS } from './shared/utils';
 
 @NgModule({
   imports: [
@@ -30,7 +33,13 @@ import { AppMaterialModule } from './app.material.module';
   ],
   providers: [
     AdDataService,
-    AdFactoryService
+    AdFactoryService,
+    {
+      provide: DateAdapter, useClass: AppDateAdapter
+    },
+    {
+      provide: MAT_DATE_FORMATS, useValue: APP_DATE_FORMATS
+    }
   ],
   declarations: [
     AppComponent,

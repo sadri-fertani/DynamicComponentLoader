@@ -7,7 +7,7 @@ import { MatNativeDateModule, MatDatepickerModule, MatButtonModule, MatCheckboxM
     ],
     exports: [
         MatNativeDateModule, MatDatepickerModule, MatButtonModule, MatCheckboxModule, MatToolbarModule, MatChipsModule, MatOptionModule, MatGridListModule, MatProgressBarModule, MatSliderModule, MatSlideToggleModule, MatMenuModule, MatDialogModule, MatSnackBarModule, MatSelectModule, MatInputModule, MatSidenavModule, MatCardModule, MatIconModule, MatRadioModule, MatProgressSpinnerModule, MatTabsModule, MatListModule
-    ],
+    ]
 })
 
 export class AppMaterialModule { }
