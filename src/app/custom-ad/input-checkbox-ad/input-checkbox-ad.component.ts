@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import { AdModelComponent } from '../../models/ad.component';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, AbstractControl } from '@angular/forms';
 import { MatCheckboxChange } from '@angular/material';
 
 @Component({
@@ -14,6 +14,8 @@ export class InputCheckboxAdComponent implements AdModelComponent, AfterViewInit
   @Input() required: boolean;
   @Input() label: string;
   @Input() data: any[];
+
+  asAbstractControl(ctrl: AbstractControl): any { return ctrl; }
 
   constructor() {
 

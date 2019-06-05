@@ -13,4 +13,5 @@ export class InputDateAdComponent implements AdModelComponent {
     @Input() required: boolean;
     @Input() label: string;
     @Input() data: any[];
+    @Input() placeHolder?: string;
 }
